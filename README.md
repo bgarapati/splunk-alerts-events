@@ -7,16 +7,25 @@ This directory contains comprehensive reference documentation for Splunk alerts 
 ```
 splunk-alerts-events/
 ├── alerts/
-│   ├── security-alerts.md
-│   ├── infrastructure-alerts.md
-│   ├── application-alerts.md
-│   └── operational-alerts.md
+│   ├── security-alerts.md          # Security alert descriptions
+│   ├── security-alerts.spl         # Security alert SPL queries
+│   ├── infrastructure-alerts.md    # Infrastructure alert descriptions
+│   ├── infrastructure-alerts.spl   # Infrastructure alert SPL queries
+│   ├── application-alerts.md      # Application alert descriptions
+│   ├── application-alerts.spl     # Application alert SPL queries
+│   ├── operational-alerts.md      # Operational alert descriptions
+│   └── operational-alerts.spl     # Operational alert SPL queries
 ├── dashboards/
-│   ├── security-dashboards.md
-│   ├── infrastructure-dashboards.md
-│   ├── application-dashboards.md
-│   ├── operational-dashboards.md
-│   └── vm-application-health-dashboards.md
+│   ├── security-dashboards.md           # Security dashboard descriptions
+│   ├── security-dashboards.spl          # Security dashboard SPL queries
+│   ├── infrastructure-dashboards.md     # Infrastructure dashboard descriptions
+│   ├── infrastructure-dashboards.spl    # Infrastructure dashboard SPL queries
+│   ├── application-dashboards.md        # Application dashboard descriptions
+│   ├── application-dashboards.spl       # Application dashboard SPL queries
+│   ├── operational-dashboards.md        # Operational dashboard descriptions
+│   ├── operational-dashboards.spl       # Operational dashboard SPL queries
+│   ├── vm-application-health-dashboards.md     # VM & App health dashboard descriptions
+│   └── vm-application-health-dashboards.spl    # VM & App health dashboard SPL queries
 └── README.md
 ```
 
@@ -139,6 +148,19 @@ splunk-alerts-events/
 11. Alert Correlation Dashboard
 12. Historical Health Trends Dashboard
 
+## File Types
+
+### Markdown Files (.md)
+- Contain descriptive documentation for alerts and dashboards
+- Include category definitions and use cases
+- Provide context and best practices
+
+### SPL Files (.spl)
+- Contain ready-to-use Splunk Processing Language (SPL) queries
+- Can be directly copied into Splunk Search or Alert configurations
+- Include comprehensive queries for each alert and dashboard panel
+- Cover common data sources and sourcetypes
+
 ## Usage
 
 This reference material can be used to:
@@ -148,6 +170,25 @@ This reference material can be used to:
 - Guide security and operations teams
 - Support capacity planning and SLA management
 - Implement comprehensive observability strategies
+
+### Using SPL Files
+
+1. **Copy SPL Queries**: Copy the desired SPL query from the `.spl` files
+2. **Paste in Splunk**: Paste into Splunk Search, Alert, or Dashboard configuration
+3. **Customize**: Adjust sourcetypes, indexes, and field names to match your environment
+4. **Test**: Run the query in Search to verify results before creating alerts
+5. **Deploy**: Save as Saved Search, Alert, or Dashboard Panel
+
+### Common SPL Patterns
+
+The SPL queries use common patterns:
+- `index=...` - Specify the data index
+- `sourcetype=...` - Specify the data source type
+- `stats` - Aggregate and calculate metrics
+- `timechart` - Create time-based visualizations
+- `eval` - Create calculated fields
+- `where` - Filter results based on conditions
+- `lookup` - Enrich data with external lookups
 
 ## Implementation Notes
 
